@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //tự động tăng
-    private int id;
+    private long id;
     private String name;
     private String description;
     @ManyToOne
