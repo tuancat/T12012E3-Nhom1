@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"  layout:decorate="~{layout/main}">
+<body>
+<div layout:fragment="content">
+  <div class="container">
+    <div class="row">
+      <h1>THÊM MỚI Product s</h1>
+    </div>
+
+    <div class="row">
+
+      <form th:action="@{/product/save-product}" method="post" class="form-group" enctype="multipart/form-data" >
+
+        <input type="text" name="name" id="name" class="form-control mb-4"
+               placeholder=" Name">
+        <input type="text" name="des" id="des" class="form-control mb-4"
+               placeholder="description">
+        <input type-="number" name="price" id="price" class="form-control mb-4"
+               placeholder="price">
+        <div class="form-group">
+          <label> Class </label>
+          <select name ="category" >
+            <option  th:each=" siteclass : ${listsiteClass}"  th:value="${siteclass.id}" th:utext="${siteclass.name}">
+            </option>
+          </select>
+        </div>
+        <div class="custom-file mb-4">
+          <input type="file" name="file" class="custom-file-input"
+                 id="customFile"> <label class="custom-file-label"
+                                         for="customFile">Product Image</label>
+        </div>
+        <div>
+          <input type="submit" th:value="ADD">
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+</body>
+</html>l>
